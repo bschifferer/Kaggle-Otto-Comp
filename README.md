@@ -40,13 +40,13 @@ I provide a detailed description [here](https://www.kaggle.com/competitions/otto
 
 My final model is a similar pipeline as proposed by Chris and described by many top solution. I will briefly summarize my solution:
 
-Pipeline for all targets:
-1. Feature Engineering
+Pipeline for all targets:<br>
+1. Feature Engineering<br>
 
-Pipelines per target
-2. Generating Candidates
-3. Add Features/Scores for session x candidate pairs:
-4. Training a XGBoost model
+Pipelines per target:<br>
+2. Generating Candidates<br>
+3. Add Features/Scores for session x candidate pairs<br>
+4. Training a XGBoost model<br>
 
 ![model](./img/datasplit.png)
 
@@ -79,3 +79,9 @@ I provide a quick overview of the directory structure:
 
 ## How to run the code
 
+Note:
+- I developed the code to run almost all files in one directory. I splitted it to make it more readible.
+- I developed my pipeline to use only 20% truncated and 80% untruncated sessions of week 4. I noticed that I can improve my LB scores by running my pipeline for all 5x folds. Therefore, I had to run many scripts 5 times.
+- I developed my pipeline to generate candidates for clicks, carts and orders at the same time. I noticed that I use different candidate generation techniques per target, resulting in 3x pipelines (`02_Clicks`, `03_Carts` and `04_Orders`) which all share similar code.
+
+#### Steps
