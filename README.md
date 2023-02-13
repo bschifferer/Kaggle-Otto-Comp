@@ -36,7 +36,7 @@ pip install gensim
 
 I provide a detailed description [here](https://www.kaggle.com/competitions/otto-recommender-system/discussion/386497).
 
-![model]('./img/model.png')
+![model](./img/model.png)
 
 My final model is a similar pipeline as proposed by Chris and described by many top solution. I will briefly summarize my solution:
 
@@ -48,7 +48,7 @@ Pipelines per target
 3. Add Features/Scores for session x candidate pairs:
 4. Training a XGBoost model
 
-![model]('./img/datasplit.png')
+![model](./img/datasplit.png)
 
 I splitted my dataset as proposed by Radek and truncated the 4th week. A difference is, that I splitted the 4th week into 5 chunks and comobine only 1 chunk of the truncated sessions of week 4 with the remaining untruncated sessions of week 4. Therefore, some of my pipeline has to be executed 5 times!
 
