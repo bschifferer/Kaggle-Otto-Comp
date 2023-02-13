@@ -80,8 +80,26 @@ I provide a quick overview of the directory structure:
 ## How to run the code
 
 Note:
+- Code and Notebooks are index by numbers and should be executed in that order.
 - I developed the code to run almost all files in one directory. I splitted it to make it more readible.
 - I developed my pipeline to use only 20% truncated and 80% untruncated sessions of week 4. I noticed that I can improve my LB scores by running my pipeline for all 5x folds. Therefore, I had to run many scripts 5 times.
 - I developed my pipeline to generate candidates for clicks, carts and orders at the same time. I noticed that I use different candidate generation techniques per target, resulting in 3x pipelines (`02_Clicks`, `03_Carts` and `04_Orders`) which all share similar code.
 
 #### Steps
+
+**0. Preparation:**
+- Download and extract the dataset into `./data/`
+- Execute `create_symbolic_links.sh` to generate symbolic links
+- Follow `00_Preprocess/README.md` to generate local CV, convert jsonl files to parquet and split the data into folds
+
+**1. Feature Engineering:**
+Most scripts can be executed independent (only GRU depends on Word2Vec scripts). 
+
+**The scripts contain a variable `igfold` in the beginning. The script needs to be exectured 5 times with igfold=0,...,5**
+
+01a_FE_Word2Vec: 
+- Execute the notebook 5x for each igfold to generate item embeddings
+01b_FE_CoVisit_1:
+- Execute each noteboook 5x for each ifgold to generate different Co-Visitation Matrices 
+
+
