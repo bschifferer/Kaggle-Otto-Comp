@@ -52,3 +52,29 @@ Pipelines per target
 
 I splitted my dataset as proposed by Radek and truncated the 4th week. A difference is, that I splitted the 4th week into 5 chunks and comobine only 1 chunk of the truncated sessions of week 4 with the remaining untruncated sessions of week 4. Therefore, some of my pipeline has to be executed 5 times!
 
+## Files Inventory
+
+I provide a quick overview of the directory structure:
+
+```
+├── 00_Preprocess
+├── 00_submissions
+├── 01a_FE_Word2Vec
+├── 01b_FE_CoVisit_1
+├── 01c_FE_CoVisit_2_Chris
+├── 01d_FE_GRU
+├── 01e_FE_Transformer
+├── 01f_FE_other
+├── 02_Clicks
+├── 03_Carts
+├── 04_Orders
+├── README.md
+├── create_symbolic_links.sh
+├── data
+├── data_folds
+├── data_tmp
+├── img
+└── preprocess
+```
+
+
