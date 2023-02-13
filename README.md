@@ -57,24 +57,25 @@ I splitted my dataset as proposed by Radek and truncated the 4th week. A differe
 I provide a quick overview of the directory structure:
 
 ```
-├── 00_Preprocess
-├── 00_submissions
-├── 01a_FE_Word2Vec
-├── 01b_FE_CoVisit_1
-├── 01c_FE_CoVisit_2_Chris
-├── 01d_FE_GRU
-├── 01e_FE_Transformer
-├── 01f_FE_other
-├── 02_Clicks
-├── 03_Carts
-├── 04_Orders
+├── 00_Preprocess                  # Contain code (incl. host scripts) for preprocessing
+├── 00_submissions                 # Stores Submission Files
+├── 01a_FE_Word2Vec                # Trains Word2Vec model to generate item embeddings
+├── 01b_FE_CoVisit_1               # Creates CoVisitation Matrices based on own logics
+├── 01c_FE_CoVisit_2_Chris         # Creates CoVisitation Matrices from Chris solutions after we merged (only 10 used)
+├── 01d_FE_GRU                     # Trains a GRU model to generate scores for session x cand pairs
+├── 01e_FE_Transformer             # Trains a Transformer model to generate scores for session x cand pairs
+├── 01f_FE_other                   # Generates additional features such as historical sales
+├── 02_Clicks                      # Runs step 2-4 for clicks target
+├── 03_Carts                       # Runs step 2-4 for clicks carts
+├── 04_Orders                      # Runs step 2-4 for clicks orders
 ├── README.md
 ├── create_symbolic_links.sh
-├── data
-├── data_folds
-├── data_tmp
+├── data                           # Contains original dataset from Kaggle
+├── data_folds                     # Contains temporary files per fold
+├── data_tmp                       # Contains temporary files
 ├── img
-└── preprocess
+└── preprocess                     # Contains dataset after the host script is applied to week 4
 ```
 
+## How to run the code
 
