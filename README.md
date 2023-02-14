@@ -85,21 +85,37 @@ Note:
 - I developed my pipeline to use only 20% truncated and 80% untruncated sessions of week 4. I noticed that I can improve my LB scores by running my pipeline for all 5x folds. Therefore, I had to run many scripts 5 times.
 - I developed my pipeline to generate candidates for clicks, carts and orders at the same time. I noticed that I use different candidate generation techniques per target, resulting in 3x pipelines (`02_Clicks`, `03_Carts` and `04_Orders`) which all share similar code.
 
-#### Steps
+## Steps
+
+Some folder contains additional README.md files.
+
+#### For all Targets 
 
 **0. Preparation:**
 - Download and extract the dataset into `./data/`
 - Execute `create_symbolic_links.sh` to generate symbolic links
 - Follow `00_Preprocess/README.md` to generate local CV, convert jsonl files to parquet and split the data into folds
+- Chris' public solution (LB 0.575) was used to fill sessions with less than 20 recommendations. Either download his files from Kaggle or run the notebooks in `./00_submissions/01_baseline/`
 
 **1. Feature Engineering:**
 Most scripts can be executed independent (only GRU depends on Word2Vec scripts). 
 
 **The scripts contain a variable `igfold` in the beginning. The script needs to be exectured 5 times with igfold=0,...,5**
 
-01a_FE_Word2Vec: 
-- Execute the notebook 5x for each igfold to generate item embeddings
-01b_FE_CoVisit_1:
-- Execute each noteboook 5x for each ifgold to generate different Co-Visitation Matrices 
+#### Clicks
+
+**2. Clicks:**
+Execute the scripts in `02_Clicks`. The final notebook `04_Combine-Bags.ipynb` ensembles the different folds and bags to a final submission.csv (only clicks).
+
+#### Carts
+
+**3. Carts:**
+Execute the scripts in `03_Carts`. The final notebook `04_Combine-Bags.ipynb` ensembles the different folds and bags to a final submission.csv (only carts).
+
+#### Orders
+
+**4. Orders:**
+Execute the scripts in `03_Carts`. The final notebook `06_Combine-Bags.ipynb` ensembles the different folds and bags to a final dataframe for orders. It will load the previous submission.csv s from `02_Clicks` and `03_Orders` to generate the final submissiono.csv.
+
 
 
