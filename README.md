@@ -102,6 +102,8 @@ Most scripts can be executed independent (only GRU depends on Word2Vec scripts).
 
 **The scripts contain a variable `igfold` in the beginning. The script needs to be exectured 5 times with igfold=0,...,5**
 
+**Note: The pipelines for clicks, carts and orders can be run independently from each other - but each pipeline will write files in the same directory and might overwriting files from other pipelines. It is recommended to run only one end-to-end at the time.**
+
 #### Clicks
 
 **2. Clicks:**
